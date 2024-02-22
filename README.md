@@ -32,9 +32,7 @@ Figure 5 shows that having the same career field has a minimal effect on matchin
 ### Metrics
 The metric used to measure the goodness-of-fit of each model explored within the project is test set accuracy. This yields an unbiased measure of model performance by using the model to predict 20% of the dataset not used in training the model.
 
-The accuracy is calculated using the formula:
-
-{% raw %}\[ \text{Accuracy} = \frac{\text{Number of Correct Predictions}}{\text{Total Number of Predictions}} = \frac{\text{True Positive} + \text{True Negative}}{\text{True Positive} + \text{True Negative} + \text{False Positive} + \text{False Negative}} \]{% endraw %}
+The accuracy is calculated using the formula: **Add formula**
 
 
 ### Tree-Based Classification Methods
