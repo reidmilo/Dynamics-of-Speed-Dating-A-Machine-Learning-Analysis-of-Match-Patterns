@@ -1,4 +1,4 @@
-# Dynamics of Speed Dating A Machine Learning Analysis of Match-Patterns
+# Dynamics of Speed Dating: A Machine Learning Analysis of Match-Patterns
 
 ## Introduction
 ### Overview
