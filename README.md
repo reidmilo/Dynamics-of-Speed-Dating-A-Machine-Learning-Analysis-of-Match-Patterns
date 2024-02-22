@@ -34,7 +34,8 @@ The metric used to measure the goodness-of-fit of each model explored within the
 
 The accuracy is calculated using the formula:
 
-\[ \text{Accuracy} = \frac{\text{Number of Correct Predictions}}{\text{Total Number of Predictions}} = \frac{\text{True Positive} + \text{True Negative}}{\text{True Positive} + \text{True Negative} + \text{False Positive} + \text{False Negative}} \]
+{% raw %}\[ \text{Accuracy} = \frac{\text{Number of Correct Predictions}}{\text{Total Number of Predictions}} = \frac{\text{True Positive} + \text{True Negative}}{\text{True Positive} + \text{True Negative} + \text{False Positive} + \text{False Negative}} \]{% endraw %}
+
 
 ### Tree-Based Classification Methods
 The initial tree-based method involved creating a single decision tree, where the response variable was "match," and all other variables were used as predictors. The resulting tree is illustrated in Figure 07 and was formed using a Cp value of 0.0095969 and training using the training set consisting of 80% of pre-processed sample units.
