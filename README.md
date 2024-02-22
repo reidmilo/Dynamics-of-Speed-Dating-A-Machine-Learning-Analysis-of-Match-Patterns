@@ -22,6 +22,7 @@ Figure 1 shows the distribution of the binary response variable, match, with 1 r
 
 
 With approximately 1 out of 5 sample units being a match, 1 is the underrepresented group; however, the ratio, while not ideal, is sufficiently workable and within an acceptable range to proceed with classification. Figures 2 and 3 visualize the age distribution of people in the dating set.
+
 ![Figure 2](Visualizations/Figure%202.jpg)
 ![Figure 3](Visualizations/Figure3.jpg)
 
@@ -37,6 +38,8 @@ Each day of the study included meeting 22 people, so the order ranged from 1 –
 Figure 5 shows that having the same career field has a minimal effect on matching with a partner; however, in Figure 6, around 40% of matches and non-matches were the same race.
 
 ![Figure 5](Visualizations/Figure5.jpg)
+![Figure 6](Visualizations/Figure6.jpg)
+
 
 ## Model Implementation
 ### Metrics
@@ -48,17 +51,16 @@ The accuracy is calculated using the formula: **Add formula**
 ### Tree-Based Classification Methods
 The initial tree-based method involved creating a single decision tree, where the response variable was "match," and all other variables were used as predictors. The resulting tree is illustrated in Figure 07 and was formed using a Cp value of 0.0095969 and training using the training set consisting of 80% of pre-processed sample units.
 
-\[ \text{Figure 07} \]
+![Figure 7](Visualizations/Figure7.jpg)
 
 To optimize the tree, the original tree was first generated using the default Cp value. The package then generated a list of Cp values along with their corresponding cross-validation errors. The Cp value with the lowest cross-validation error was then selected, and the tree was re-run. This process was repeated with a list of Cp values with a smaller range until the optimal Cp value from the list matched the one used to create the original tree. Figure 08 displays the list of possible Cp values with their corresponding cross-validation errors and tree sizes.
 
-\[ \text{Figure 08} \]
+![Figure 8](Visualizations/Figure8.jpg)
 
 The test set accuracy of the single decision tree, depicted in Figure 07, is 86.3%. Figure 08	
 To improve the single-tree method above, multi-tree methods were used to improve the accuracy of the tree model. First, a bagging method was used to create a model from multiple decision trees. For bagging, all 35 features were used to create each tree. The bagged decision tree had a test-set accuracy of 88.82%. From the model, the importance of each predictor contributing to the response was visualized in Figure 09. It is important to note the features deemed the most important through the bagged decision tree are included in the single, pruned decision tree.
 
-\[ \text{Figure 09} \]
+![Figure 9](Visualizations/Figure9.jpg)
 
 After a bagged decision tree, a random forest was made where only a third of the features were used to create each tree. The accuracy of this method was 88.5%, a slight decrease from the results from bagging. The advantage of using a random forest over bagging is the added variation through only using one-third of the predictors in each tree to prevent strong predictors in each tree. Therefore, since test set accuracy did not increase, there are no predictors that overpowered other predictors. However, as seen in Figure 10, predictors with less importance from the bagged decision tree have more importance in the random forest since they were used in more trees due to only using a third of the predictors.
 
-\[ \text
