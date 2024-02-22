@@ -18,16 +18,23 @@ Table 1 shows a summary of statistics for all the variables within the speed dat
 
 ### Exploratory Visuals
 Figure 1 shows the distribution of the binary response variable, match, with 1 representing a match and 0 representing not a match.
+![Figure 1](Visualizations/Figure1.jpg)
+
 
 With approximately 1 out of 5 sample units being a match, 1 is the underrepresented group; however, the ratio, while not ideal, is sufficiently workable and within an acceptable range to proceed with classification. Figures 2 and 3 visualize the age distribution of people in the dating set.
+![Figure 2](Visualizations/Figure2.jpg)
+![Figure 3](Visualizations/Figure2.jpg)
 
 Through creating a normal curve, in Figure 2 the average female age from the study is 26, and in Figure 3 the average male age is also around 26. While the average age of the men is slightly more than women, there is more variance in the age of men; however, the maximum male age is only 42 while the maximum female age in the dataset is 55.
 
 Figure 4 represents the change in match rate over order, or the number of dates they have met with that day.
+![Figure 4](Visualizations/Figure4.jpg)
+
 
 Each day of the study included meeting 22 people, so the order ranged from 1 – 22 in every sample unit. We see a decrease in the match rate from the first person they met until around 14, then we see a significant increase towards the end of the study. In a real-world setting, this could represent the number of profiles already seen by a user. Figure 5 and Figure 6 visualize the effects of having the same race and working in the same career field on matched couples.
 
 Figure 5 shows that having the same career field has a minimal effect on matching with a partner; however, in Figure 6, around 40% of matches and non-matches were the same race.
+![Figure 5](Visualizations/Figure5.jpg)
 
 ## Model Implementation
 ### Metrics
