@@ -66,7 +66,7 @@ After a bagged decision tree, a random forest was made where only a third of the
 
 ![Figure 10](Visualizations/Figure10.jpg)
 
-The final tree method used for classification was boosted decision tree. For this method, 5000 trees were formed at the optimal depth of 4. The boosted tree had a test set accuracy of 87.4% which is the least accurate from the multi-tree methods but more than the single tree.  
+The final tree method used for classification was a boosted decision tree. For this method, 5000 trees were formed at the optimal depth of 4. The boosted tree had a test set accuracy of 87.4% which is the least accurate from the multi-tree methods but more than the single tree.  
 In Figure 11, the importance of each variable in the boosted tree is very similar to those in the random forest in Figure 10. 
 
 ![Figure 11](Visualizations/Figure11.jpg)
@@ -80,12 +80,83 @@ Table 2 compares the importance of variables within the dataset across different
 However, in the boosted decision tree models, the Gini index cannot be employed to measure importance since the trees
 are formed through residuals. Instead, the relative influence of each variable is used to determine its importance. The higher the relative influence, the more significant the variable.
 
+## Linear-Based Classification Methods
+
+Here is the revised version with corrected grammar:
+
+In addition to tree-based classification methods, several linear-based classification models, including logistic regression, linear-discriminant analysis (LDA), and quadratic-discriminant analysis (QDA), were utilized. Furthermore, ridge and lasso regressions were performed on a generalized linear model, and the L1 and L2 coefficient penalties were used to explore if other models were overfitting the dataset.
+
+### Variable Selection
+
+Backward variable selection was employed to determine which variables would offer the most predictive power without overfitting the dataset, thus avoiding poor test-set performance.
+
+### Logistic Regression 
+
+A logistic regression model was trained using the training set and the variables from backward selection. The model was then used to predict matches on the test set, returning a probability. Therefore, a threshold must be used to create the binary classification. The optimal threshold was determined to be 0.63 for the model, producing an 85% test set accuracy.
+
+### Linear-Discriminant Analysis 
+
+An LDA model, or linear-discriminant analysis, was trained using the same training set. Additionally, the same predictors were used within this model as in the logistic regression model. While testing additional predictors within the model, it was observed that the model overfit the dataset, leading to a lower test set accuracy. Similarly, to the logistic regression, a 0.63 threshold was used to classify the output of predictions on the test set. This model produced a test set accuracy of 86%. 
+
+### Quadratic-Discriminant Analysis 
+
+A QDA, or quadratic-discriminant analysis, model was trained using the same test set, predictors, and threshold as the previous two models. Being the most complex, this model proved to be the most accurate with an 87% test set accuracy.
+
+### Ridge and Lasso Regression 
+
+The L1 and L2 penalties from the Ridge and Lasso regressions were applied to a generalized linear model (GLM) to explore if a coefficient penalty benefits the model by making it more generalized to avoid overfitting. A 5-fold cross-validation yielded an optimal lambda of 0.002140288 for the ridge regression and 0.01545461 for the lasso regression.
+
+Figure 12 shows that the optimal lambda for the ridge regression is where the binomial deviance is the smallest. Deviance is the opposite measure of log-likelihood on the validation set. Therefore, since we want to maximize the log-likelihood with lambda, we want to minimize the deviance. Figure 13 models the same as Figure 12 but for the ridge regression and its lambda. The first dotted, vertical line represents the optimal lambda where the deviance is minimized, and the second represents one standard error away from the optimal lambda. Since a small lambda corresponds with a negative log(lambda), we can see in both figures that our lambda, or penalty, is small.
+
+![Figure 12](Visualizations/Figure%2012.jpg)
+![Figure 13](Visualizations/Figure13.jpg)
+
+Additionally, in Figure 12, we observe the elimination of variables as the penalty term becomes larger. Figure 13 has a constant 34 variables since the L2 penalty can only minimize coefficients and not reach zero to eliminate the predictor. Figure 12 shows that the optimal lambda uses 29 predictors instead of the 34 in the dataset.
+
+Table 03 shows the coefficients after the L1 and L2 penalties were applied to them using ridge and lasso regression. In the lasso column, the variables eliminated were career_c_F, career_c_M, date_F, intel_F, and order. These variables are consistent with variables with a less importance in the bagged decision tree and random forest. 
+
+![Table 3](Visualizations/Table03.png)
 
 
+### Support Vector Machines
+
+The final classification model used on the dataset is a support vector machine. Three support vector machines were tested: linear, radial, and polynomial. Each model used a 5-fold cross-validation method to train the model. This validation method allows us to find the optimal cost parameter for the linear model, as well as the gamma for the radial and polynomial models.
+
+The linear model, with a cost parameter of 1, produced a test-set accuracy of 87.94%. The polynomial model, with a cost parameter of 1 and gamma of 0.01677244, produced a test-set accuracy of 88.24%. Finally, the radial model, with a cost parameter of 1 and a gamma of 0.01, produced a test-set accuracy of 88.04%. Therefore, the polynomial model produces the best test-set accuracy, indicating that the dataset must have a non-linear shape that can be separated.
+
+## Results
 
 
+ After performing all the models, the most accurate models were the random forest and bagged decision tree while the least accurate were the Ridge and Lasso regression model, as shown in Figure 14.
+ 
+![Figure 14](Visualizations/Figure14.jpg)
+
+The models that exhibited the best performance were the complex and flexible models, which typically have low bias and high variance. These types of models tend to perform better when dealing with datasets that have many predictors and fewer sample units. Although these models can fit the training set very well, they have a greater potential to overfit the test set, resulting in a low test-set accuracy. However, in this dataset, there was no evidence of overfitting in the complex models since ridge and lasso regression, which are used to prevent overfitting, did not produce better results.
+
+To increase the number of sample units and balance the dataset, the response was oversampled, resulting in a training set with 40% matches. However, when trained on the same models as the original, the oversampled training set did not perform better.
+
+When examining the significance of variables in the dataset across all models except the boosted decision tree, the same variables were consistently identified as significant. Additionally, in the boosted tree, 'like_F' was the most significant predictor for determining whether a couple would be a match.
 
 
+## Conclusion
+
+In addition to the insights gained from observing individual decisions and gender differences in partner selection, the data collected in this study holds potential for various real-world applications and implications. Understanding the factors that influence dating matches can have significant impacts on several aspects of society and individuals:
+
+1. **Tailoring Dating Platforms:** The findings can be utilized to enhance online dating platforms by tailoring recommendations based on individuals' interests, career fields, and other significant attributes. This could lead to more accurate and personalized matchmaking, improving the overall user experience.
+
+2. **Promoting Inclusivity:** Recognizing the limitations of the dataset, efforts can be made to expand research to include a more diverse and representative sample. This would help ensure that dating algorithms and models are inclusive and considerate of various demographics, orientations, and gender identities.
+
+3. **Addressing Gender Biases:** Insights into how gender biases affect partner selection could be applied to develop interventions or educational programs aimed at promoting more equitable and respectful dating practices. This could contribute to fostering healthier relationships and breaking down stereotypes.
+
+4. **Cultural Sensitivity:** The study's focus on racial differences in dating opens the door to exploring cultural nuances and preferences. This knowledge could be used to develop culturally sensitive matchmaking algorithms that account for diverse cultural backgrounds, promoting understanding and compatibility.
+
+5. **Ethical Considerations in Dating Apps:** The ethical implications raised regarding dating apps prioritizing user satisfaction over successful matches prompt a critical examination of the ethical standards and practices within the online dating industry. This could lead to the development of guidelines or regulations to ensure transparency and fairness in matchmaking algorithms.
+
+6. **Impact on Society:** Understanding how intelligence and ambition influence partner selection sheds light on societal attitudes and expectations. This knowledge can be leveraged to challenge and reshape societal norms, fostering a more inclusive and supportive environment for individuals of all backgrounds and aspirations.
+
+**Acknowledging Limitations:** It is important to note that the dataset had limitations in terms of inclusivity and representation. The majority of participants were white, and the study focused solely on heterosexual individuals. Future research endeavors should strive for a more diverse and comprehensive dataset to ensure broader applicability and relevance to a wider range of individuals.
+
+In conclusion, while the study's primary focus was on building models for dating predictions, the implications of the findings extend beyond individual match outcomes. The data has the potential to shape the future of dating platforms, promote inclusivity, address biases, and contribute to a more thoughtful and ethical approach to online matchmaking. The responsibility lies not only with researchers but also with industry stakeholders to apply these insights ethically and responsibly for the benefit of users and society as a whole.
 
 
 
