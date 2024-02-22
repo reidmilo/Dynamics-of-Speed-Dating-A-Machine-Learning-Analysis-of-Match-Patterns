@@ -1,14 +1,14 @@
-# Dynamics-of-Speed-Dating-A-Machine-Learning-Analysis-of-Match-Patterns
+# Dynamics of Speed Dating A Machine Learning Analysis of Match-Patterns
 
 ## Introduction
 ### Overview
 The Speed Dating dataset, compiled by Sheena S. Iyengar, serves as the foundation for a final project exploring decision-making in dating. Collected during a speed dating experiment conducted by professors from Columbia University, Harvard University, and Stanford University in New York City, the dataset aims to observe how decision-making in dating varies by gender and race. The project's objective is to build classification models determining whether two people are a match based on their characteristics, offering potential applications in recommending highly compatible matches in the online dating industry.
 
 ## Data Pre-Processing
-The raw dataset, consisting of data from 21 controlled speed dating sessions with 8378 sample units and 195 columns, undergoes pre-processing to create probabilities of a match. Parameters specific to the experiment or created by the researcher are removed. The dataset is modified to represent each date by a single row, eliminating duplicates. Missing values are handled, and categorical variables for career and career field are categorized as "other" for missing values. Binary variables for the same career and working in the same field are created for effectiveness. Certain waves of the experiment and redundant columns are removed.
+The raw dataset, consisting of data from 21 controlled speed dating sessions with 8378 sample units and 195 columns, undergoes pre-processing to create probabilities of a match. Parameters specific to the experiment or created by the researcher are removed. The dataset is modified to represent each date by a single row, eliminating duplicates. Missing values are handled, and categorical variables for career and career fields are categorized as "other" for missing values. Binary variables for the same career and working in the same field are created for effectiveness. Certain waves of the experiment and redundant columns are removed.
 
 ## Data Analysis
-Table 1 presents a summary of statistics for all variables within the speed dating set, providing descriptions, means, standard deviations, minimum and maximum values.
+Table 1 presents a summary of statistics for all variables within the speed dating set, providing descriptions, means, standard deviations, and minimum and maximum values.
 
 ### Exploratory Visuals
 Figure 1 illustrates the distribution of the binary response variable, 'match,' where 1 represents a match and 0 represents not a match. Figures 2 and 3 visualize the age distribution of people in the dating set. Figure 4 represents the change in match rate over the order of dates. Figures 5 and 6 visualize the effects of having the same race and working in the same career field on matched couples.
