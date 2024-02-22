@@ -144,7 +144,7 @@ When examining the significance of variables in the dataset across all models ex
 
 In addition to the insights gained from observing individual decisions and gender differences in partner selection, the data collected in this study holds potential for various real-world applications and implications. Understanding the factors that influence dating matches can have significant impacts on several aspects of society and individuals:
 
-1. **Tailoring Dating Platforms:** The findings can be utilized to enhance online dating platforms by tailoring recommendations based on individuals' interests, career fields, and other significant attributes. This could lead to more accurate and personalized matchmaking, improving the overall user experience.
+1. **Online Dating Platforms:** The findings can be utilized to enhance online dating platforms by tailoring recommendations based on individuals' interests, career fields, and other significant attributes. This could lead to more accurate and personalized matchmaking, improving the overall user experience.
 
 2. **Promoting Inclusivity:** Recognizing the limitations of the dataset, efforts can be made to expand research to include a more diverse and representative sample. This would help ensure that dating algorithms and models are inclusive and considerate of various demographics, orientations, and gender identities.
 
