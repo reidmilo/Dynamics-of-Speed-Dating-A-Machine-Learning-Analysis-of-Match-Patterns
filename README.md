@@ -64,3 +64,28 @@ To improve the single-tree method above, multi-tree methods were used to improve
 
 After a bagged decision tree, a random forest was made where only a third of the features were used to create each tree. The accuracy of this method was 88.5%, a slight decrease from the results from bagging. The advantage of using a random forest over bagging is the added variation through only using one-third of the predictors in each tree to prevent strong predictors in each tree. Therefore, since test set accuracy did not increase, there are no predictors that overpowered other predictors. However, as seen in Figure 10, predictors with less importance from the bagged decision tree have more importance in the random forest since they were used in more trees due to only using a third of the predictors.
 
+![Figure 10](Visualizations/Figure10.jpg)
+
+The final tree method used for classification was boosted decision tree. For this method, 5000 trees were formed at the optimal depth of 4. The boosted tree had a test set accuracy of 87.4% which is the least accurate from the multi-tree methods but more than the single tree.  
+In Figure 11, the importance of each variable in the boosted tree is very similar to those in the random forest in Figure 10. 
+
+![Figure 11](Visualizations/Figure11.jpg)
+
+One of the main distinctions between the boosted tree and other tree models is the significance of int_corr and order. These variables were deemed insignificant in the single decision tree, random forest, and bagged tree models. However, in the boosted tree model, formed using residuals, int_corr and order were the second and fourth most important variables, respectively.
+
+Table 2 compares the importance of variables within the dataset across different tree techniques. In the random forest and bagged tree models, the mean decrease Gini index was utilized to determine the importance level of each variable. The mean decrease Gini index assesses the extent to which each variable contributes to the homogeneity of the nodes and leaves. The Gini index plays a crucial role in the formation of splits in a random forest and bagged tree. Therefore, the greater the Gini index, the more important the variable.
+
+![Table 2](Visualizations/Table%202.png)
+
+However, in the boosted decision tree models, the Gini index cannot be employed to measure importance since the trees
+are formed through residuals. Instead, the relative influence of each variable is used to determine its importance. The higher the relative influence, the more significant the variable.
+
+
+
+
+
+
+
+
+
+
