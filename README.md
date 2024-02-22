@@ -14,10 +14,12 @@ To eliminate some missing values within the dataset, a category was made for the
 
 ## Data Analysis
 Table 1 shows a summary of statistics for all the variables within the speed dating set used to build the models. Each variable has a corresponding description, mean, standard deviation, minimum value, and maximum value.
+
 ![Table 1](Visualizations/Table1.png)
 
 ### Exploratory Visuals
 Figure 1 shows the distribution of the binary response variable, match, with 1 representing a match and 0 representing not a match.
+
 ![Figure 1](Visualizations/Figure1.jpg)
 
 
